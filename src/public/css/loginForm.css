@@ -1,0 +1,54 @@
+.div__main{
+  margin: auto;
+  margin-top: 30px;
+  width: 90%;
+  max-width: 350px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+
+  .h2__title {
+    text-align: center;
+    margin: 20px 0;
+  }
+}
+
+/* インプットフォーム */
+.div__input-form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  
+  .div__input{
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  img{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    vertical-align: bottom
+  }
+
+  input{
+    height: 30px;
+    border: 0;
+    border-bottom: 2px solid #909090;
+    background-color: transparent;
+  }
+}
+
+.button__submit {
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.a__register, .a__login{
+  margin: 15px auto;
+}

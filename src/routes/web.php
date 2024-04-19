@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// トップページを表示
+Route::get('/', [
+    ItemController::class, 'index'
+]);
+
+// 会員認証
+Route::middleware('verified')->group(function () {
+
+    // マイページを表示
+    Route::get('/mypage', [
+        AuthController::class, 'mypage'
+    ])->name('mypage');;
+
 });
