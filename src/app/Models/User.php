@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address_id',
+        'img_url',
     ];
 
     /**
@@ -41,4 +43,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Addressモデルとの紐づけ
+    public function address(){
+        return $this->belongsTo('App\Models\Address');
+    }
+
+    // Orderモデルとの紐づけ
+    public function orders(){
+        return $this->hasMany('App\Models\Order');
+    }
+
+    // Likeモデルとの紐づけ
+    public function likes(){
+        return $this->hasMany('App\Models\Like');
+    }
+
+    // Commentモデルとの紐づけ
+    public function comment(){
+        return $this->hasMany('App\Models\Comment');
+    }
 }
