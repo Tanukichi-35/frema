@@ -49,6 +49,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Address');
     }
 
+    // Itemモデルとの紐づけ
+    public function items(){
+        return $this->hasMany('App\Models\Item');
+    }
+
     // Orderモデルとの紐づけ
     public function orders(){
         return $this->hasMany('App\Models\Order');
@@ -62,5 +67,25 @@ class User extends Authenticatable
     // Commentモデルとの紐づけ
     public function comment(){
         return $this->hasMany('App\Models\Comment');
+    }
+
+    // お気に入りの商品の取得
+    public function favoriteItems(){
+        $likes = $this->likes;
+        $items = [];
+        for ($i=0; $i < $likes->count(); $i++) { 
+            $items[$i] = $likes[$i]->item;
+        }
+        return $items;
+    }
+
+    // 購入した商品の取得
+    public function purchasedItems(){
+        $orders = $this->orders;
+        $items = [];
+        for ($i=0; $i < $orders->count(); $i++) { 
+            $items[$i] = $orders[$i]->item;
+        }
+        return $items;
     }
 }

@@ -9,7 +9,7 @@ use DateTime;
 
 class Item extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
     protected $fillable = [
         'name',
         'description',
@@ -31,6 +31,11 @@ class Item extends Model
     // Commentモデルとの紐づけ
     public function comments(){
         return $this->hasMany('App\Models\Comment');
+    }
+
+    // userモデルとの紐づけ
+    public function user(){
+        return $this->belongsTo('App\Models\User');
     }
 
     // Conditionモデルとの紐づけ

@@ -17,6 +17,7 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('condition_id')->constrained('conditions');
             $table->integer('price');
             $table->string('img_url')->nullable();
