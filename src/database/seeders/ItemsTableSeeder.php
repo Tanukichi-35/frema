@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Str;
 
 class ItemsTableSeeder extends Seeder
 {
@@ -15,6 +16,7 @@ class ItemsTableSeeder extends Seeder
     public function run()
     {
         $param = [
+            'id' => Str::uuid(),
             'name' => 'カメラ',
             'description' => '古いカメラです。ジャンク品です。',
             'user_id' => '1',
@@ -25,6 +27,7 @@ class ItemsTableSeeder extends Seeder
         DB::table('items')->insert($param);
 
         $param = [
+            'id' => Str::uuid(),
             'name' => '小物ケース',
             'description' => '小物を色々収納できます。',
             'user_id' => '1',
@@ -35,6 +38,7 @@ class ItemsTableSeeder extends Seeder
         DB::table('items')->insert($param);
 
         $param = [
+            'id' => Str::uuid(),
             'name' => 'マグカップ',
             'description' => 'ピンク色のかわいいマグカップです。',
             'user_id' => '2',
@@ -45,6 +49,7 @@ class ItemsTableSeeder extends Seeder
         DB::table('items')->insert($param);
 
         $param = [
+            'id' => Str::uuid(),
             'name' => '偏光グラス',
             'description' => '運転、アウトドア用に。',
             'user_id' => '1',
@@ -55,6 +60,7 @@ class ItemsTableSeeder extends Seeder
         DB::table('items')->insert($param);
 
         $param = [
+            'id' => Str::uuid(),
             'name' => '外付けHDD',
             'description' => '容量:1TB、USB3.0対応。',
             'user_id' => '1',
@@ -65,6 +71,7 @@ class ItemsTableSeeder extends Seeder
         DB::table('items')->insert($param);
 
         $param = [
+            'id' => Str::uuid(),
             'name' => '自転車用ヘルメット',
             'description' => 'シンプルなデザインの自転車用ヘルメットです。',
             'user_id' => '2',
@@ -75,6 +82,7 @@ class ItemsTableSeeder extends Seeder
         DB::table('items')->insert($param);
 
         $param = [
+            'id' => Str::uuid(),
             'name' => 'キーボード',
             'description' => '白くきれいなキーボードです。',
             'user_id' => '1',
@@ -85,6 +93,7 @@ class ItemsTableSeeder extends Seeder
         DB::table('items')->insert($param);
 
         $param = [
+            'id' => Str::uuid(),
             'name' => '交換用レンズ',
             'description' => '望遠レンズ。',
             'user_id' => '1',
@@ -95,6 +104,7 @@ class ItemsTableSeeder extends Seeder
         DB::table('items')->insert($param);
 
         $param = [
+            'id' => Str::uuid(),
             'name' => 'トラックボールマウス',
             'description' => '人間工学に基づいたすごいマウス。',
             'user_id' => '1',
@@ -105,6 +115,7 @@ class ItemsTableSeeder extends Seeder
         DB::table('items')->insert($param);
 
         $param = [
+            'id' => Str::uuid(),
             'name' => 'フィルター',
             'description' => 'カメラ用の減光、偏光フィルター。',
             'user_id' => '1',

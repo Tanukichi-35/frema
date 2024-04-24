@@ -4,12 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 use Auth;
 use DateTime;
 
 class Item extends Model
 {
     use HasFactory;
+
+    public $incrementing = false;
+    protected $keyType = 'string';
     protected $fillable = [
         'name',
         'description',
@@ -44,23 +48,27 @@ class Item extends Model
     }
 
     // ItemCategoryモデルとの紐づけ
-    public function item_categories(){
+    public function itemCategories(){
         return $this->hasMany('App\Models\ItemCategory');
     }
 
-    // カテゴリーで検索
-    public function scopeCategorySearch($query, $category_id)
+    // アイテムをアイテム名とカテゴリーで検索
+    public function scopeItemSearch($query, $keyword, $item_categories)
     {
-        if (!empty($category_id) || $category_id != 0) {
-            $query->where('category_id', $category_id);
+        if (!empty($keyword)) {
+            $query->where(function ($query) use($keyword, $item_categories) {
+                $query->where('name', "like", "%".$keyword."%");
+                foreach ($item_categories as $item_category) {
+                    $query->orWhere('id', '=', $item_category->item_id);
+                }
+            });
+
+            // $query->where('name', "like", "%".$keyword."%");
         }
     }
 
-    // アイテム名で検索
-    public function scopeItemSearch($query, $item_name)
-    {
-        if (!empty($item_name)) {
-            $query->where('name', "like", "%".$item_name."%");
-        }
+    // uuidの一致する商品を取得
+    public static function getItem($id){
+        return self::Where('id', '=', $id)->first();
     }
 }
