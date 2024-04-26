@@ -24,12 +24,12 @@ class Like extends Model
     }
 
     // お気に入りアイテムの取得
-    public static function getFavorite(int $user_id, int $item_id){
+    public static function getLike(int $user_id, string $item_id){
       return Like::where("user_id", '=', $user_id)->where("item_id", '=', $item_id)->first();
     }
 
     // お気に入りステータスの確認
-    public static function checkFavorite(int $user_id, int $item_id){
+    public static function checkLike(int $user_id, string $item_id){
         if($user_id == 0){
             return session()->has(Item::find($item_id)->name);
         }

@@ -1,0 +1,87 @@
+.div__main{
+  margin: auto;
+  margin-top: 30px;
+  width: 90%;
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+
+  .h2__title {
+    text-align: center;
+    margin: 20px 0;
+  }
+}
+
+/* インプットフォーム */
+.div__input-form{
+  display: flex;
+  flex-direction: column;
+  
+  .div__input{
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  label{
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+
+  input{
+    height: 30px;
+    border: 1px solid #C3C3C3;
+    border-radius: 2px;
+    background-color: transparent;
+  }
+
+  .a__register, .a__login{
+    margin: 15px auto;
+  }
+}
+
+.button__submit {
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+/*
+.div__img {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    background-color: #D9D9D9;
+    object-fit: cover;
+  }
+
+  input {
+    display: none;
+  }
+
+  .label__select {
+    font-size: 0.8rem;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-right: 1%;
+    color: #FF5556;
+    border: solid 1px #FF5556;
+    border-radius: 5px;
+    padding: 5px 20px;
+    height: 30px;
+  }
+}
+*/

@@ -1,0 +1,135 @@
+.div__main{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px 10px;
+}
+
+/* 商品画像 */
+.div__left-contents{
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  margin-top: 16px;
+
+  .img__item-image{
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+  }
+}
+
+/* 商品説明 */
+.div__right-contents{
+  display: flex;
+  flex-direction: column;
+
+  .p__price{
+    font-size: 1.1rem;
+  }
+
+  .div__function{
+    display: flex;
+    flex-direction: row;
+
+    .div__like, .div__comment{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 10px 10px 10px;
+    }
+
+    img{
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+  }
+
+  /* 購入 */
+  .div__purchase-form{
+      width: 90%;
+      max-width: 300px;
+
+      .a__purchase {
+      display: inline-block;
+      background-color: #FF5556;
+      color: #fff;
+      width: 100%;
+      padding: 5px 0;
+      border-radius: 3px;
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .div__category, .div__condition{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      p{
+        margin-right: 30px;
+        font-weight: bold;
+      }
+
+      small{
+        margin: 5px;
+        padding: 3px 20px;
+      }
+
+      .small__category{
+        background-color: #D9D9D9;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  /* コメント */
+  .div__comment-form{
+    width: 90%;
+    max-width: 300px;
+
+    .div__show-comment {
+      min-height: 50px;
+      max-height: 50%;
+      overflow: auto;
+    }
+
+    .p__comment{
+      margin: 10px;
+      padding: 5px;
+      border: solid 1px #D9D9D9;
+      border-radius: 5px;
+    }
+
+    .div__comment-user{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .img__user-img{
+        background-color: #D9D9D9;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+    }
+
+    .label__comment{
+      display: block;
+    }
+
+    .textarea__comment{
+      width: 100%;
+      margin-right: 30px;
+      display: block;
+      border: solid 1px #D9D9D9;
+    }
+
+    .button__comment-submit{
+      width: 100%;
+      padding: 5px 100px;
+      border-radius: 3px;
+      margin: 10px 0;
+    }
+  }
+}

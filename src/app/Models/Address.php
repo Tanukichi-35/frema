@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Area extends Model
+class Address extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'post_code',
+        'user_id',
+        'postcode',
         'address',
         'building',
     ];
 
     // Userモデルとの紐づけ
     public function user(){
-        return $this->hasOne('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     // Orderモデルとの紐づけ

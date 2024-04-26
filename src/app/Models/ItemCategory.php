@@ -22,4 +22,16 @@ class ItemCategory extends Model
     public function item(){
         return $this->belongsTo('App\Models\Item');
     }
+
+    // カテゴリーで検索
+    public function scopeCategorySearch($query, $categories)
+    {
+        if (!empty($categories)) {
+            $query->where(function ($query) use($categories) {
+                foreach ($categories as $category) {
+                    $query->orWhere('category_id', $category->id);
+                }
+            });
+        }
+    }
 }

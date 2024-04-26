@@ -1,0 +1,38 @@
+.div__file {
+  width: 100%;
+  font-size: 12px;
+  padding: 5px;
+  border: dotted 2px #C3C3C3;
+  border-radius: 3px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  img {
+    height: 100px;
+    line-height: 100px;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    font-size: 0.8rem;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-right: 1%;
+    color: #FF5556;
+    border: solid 1px #FF5556;
+    border-radius: 5px;
+    padding: 5px 20px;
+    height: 30px;
+  }
+}
+
+.h3__input{
+  border-bottom: solid 1px #C3C3C3;
+}

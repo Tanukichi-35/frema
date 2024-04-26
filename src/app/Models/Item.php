@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
+use App\Models\Like;
+use App\Models\Comment;
 use Auth;
 use DateTime;
 
@@ -67,8 +69,32 @@ class Item extends Model
         }
     }
 
-    // uuidの一致する商品を取得
-    public static function getItem($id){
-        return self::Where('id', '=', $id)->first();
+    // お気に入りステータスの確認
+    public function checkLike(){
+        if(Auth::user()){
+            return Like::checkLike(Auth::user()->id, $this->id);
+        }
+        else{
+            return Like::checkLike(0, $this->id);
+        }
+    }
+
+    // お気に入り数の取得
+    public function getLikeNumber(){
+        $number = Like::where('item_id', '=', $this->id)->count();
+
+        // 認証前の状態でお気に入り追加されている場合
+        if(!Auth::user()){
+            if($this->checkLike()){
+                $number++;
+            }
+        }
+
+        return $number;
+    }
+
+    // コメント数の取得
+    public function getCommentNumber(){
+        return Comment::where('item_id', '=', $this->id)->count();
     }
 }

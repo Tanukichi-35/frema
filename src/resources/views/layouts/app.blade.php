@@ -16,6 +16,32 @@
 </head>
 
 <body>
+  <header>
+    <div class="div__header">
+      <a href="/">
+        <img class="img__logo" src="{{asset("img/logo.svg")}}" alt="">
+      </a>
+      <form class="form__search" action="/search" method="GET" @disabled(true)>
+        @csrf
+        <input class="input__search" type="text" name="keyword" id="" placeholder="なにをお探しですか？" @if (isset( $request )) value="{{$request['keyword']}}"@endif>
+      </form>
+      <div class="div__menu">
+        @if (Auth::check()){
+          <a href="/mypage" class="a__mypage">マイページ</a>
+          <form class="form__logout" action="/logout" method="POST">
+            @csrf
+            <button>ログアウト</button>
+          </form>
+        }
+        @else{
+          <a href="/login" class="a__login">ログイン</a>
+          <a href="/register" class="a__register">会員登録</a>
+        }
+        @endif
+        <a href="/sell" class="a__sell">出品</a>
+      </div>
+    </div>
+  </header>
 
   {{-- message --}}
   @if(session('message'))
@@ -26,28 +52,6 @@
   @if(session('error'))
   <div id="div__flash-error">{{session('error')}}</div>
   @endif
-
-  <header>
-    <div class="div__header">
-      <img class="img__logo" src="{{asset("img/logo.svg")}}" alt="">
-      <form class="form__search" action="/serach" method="POST" @disabled(true)>
-        @csrf
-        <input class="input__search" type="text" name="keyword" id="" placeholder="なにをお探しですか？">
-      </form>
-      <div class="div__menu">
-        <div class="div__link">
-          <a href="/login" class="a__login">ログイン</a>
-          <a href="/login" class="a__login">会員登録</a>
-          <a href="/mypage" class="a__mypage">マイページ</a>
-        </div>
-        <form class="form__logout" action="/logout" method="POST">
-          @csrf
-          <button>ログアウト</button>
-        </form>
-        <a href="/sell" class="a__sell">出品</a>
-      </div>
-    </div>
-  </header>
 
   <main>
     @yield('content')

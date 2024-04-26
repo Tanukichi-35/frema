@@ -15,7 +15,8 @@ class AddressesTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'post_code' => '150-0043',
+            'user_id' => '3',
+            'postcode' => '150-0043',
             'address' => '東京都渋谷区道玄坂',
             'building' => 'サムシンビル',
         ];

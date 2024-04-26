@@ -12,8 +12,16 @@ class Category extends Model
         'name',
     ];
 
-    // Itemモデルとの紐づけ
-    public function item_categories(){
-        return $this->hasMany('App\Models\ItemCategories');
+    // ItemCategoryモデルとの紐づけ
+    public function itemCategories(){
+        return $this->hasMany('App\Models\itemCategories');
+    }
+
+    // カテゴリーで検索
+    public function scopeCategorySearch($query, $keyword)
+    {
+        if (!empty($keyword)) {
+            $query->where('name', "like", "%".$keyword."%");
+        }
     }
 }

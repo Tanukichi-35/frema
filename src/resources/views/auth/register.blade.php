@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('css')
-  <link rel="stylesheet" href="{{ asset('css/loginForm.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/form.css') }}" />
 @endsection
 
 @section('content')
-<div class="div__main shadow">
+<div class="div__main">
   <h2 class="h2__title">会員登録</h2>
   <form action="/register" method="POST" class="form__register">
     @csrf

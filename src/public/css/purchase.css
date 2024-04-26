@@ -1,0 +1,113 @@
+.div__main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px 100px 100px;
+  padding: 50px;
+  max-width: 1500px;
+  margin: auto;
+}
+
+/* 商品 */
+.div__item {
+  grid-row: 1 / 2;
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: row;
+
+  .img__item-image{
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  .div__item-info{
+    padding: 30px;
+    margin-left: 20px;
+
+    .h3__item-name{
+
+    }
+
+    .p__item-price{
+      font-size: 1.1rem;
+    }
+  }
+}
+
+/* 支払い方法 */
+.div__payment {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 50px;
+  line-height: 50px;
+
+  .h3__payment{
+    margin: 0;
+  }
+}
+
+/* 配送先 */
+.div__delivery {
+  grid-row: 3 / 4;
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 50px;
+  line-height: 50px;
+
+  .h3__delivery{
+    margin: 0;
+  }
+}
+
+/* まとめ */
+.div__summary {
+  grid-row: 1 / 3;
+  grid-column: 3 / 4;
+  border: solid 1px #ACACAC;
+  margin-right: 5%;
+  margin-bottom: 50px;
+  padding: 8%;
+
+  .table__summary{
+    font-size: 1.0rem;
+    width: 100%;
+  }
+
+  .tr__item-price{
+    height: 80px;
+  }
+
+  .tr__payment-price{
+    height: 50px;
+  }
+
+  .tr__payment-method{
+    height: 50px;
+  }
+
+  th,td{
+    width: 50%;
+    text-align: left;
+  }
+}
+
+/* 購入 */
+.div__purchase {
+  grid-row: 3 / 4;
+  grid-column: 3 / 4;
+  margin-right: 5%;
+
+  .button__purchase {
+    width: 100%;
+    height: 40px;
+    padding: 5px 0;
+    font-size: 1.1rem;
+    border-radius: 3px;
+    margin: 5px 0;
+  }
+}

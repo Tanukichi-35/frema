@@ -1,0 +1,139 @@
+.div__main{
+  padding: 30px;
+}
+
+/* マイリストのプロフィール */
+.div__main-top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+  .div__profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .img__profile {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: none;
+      background-color: #D9D9D9;
+      margin-right: 20px;
+      object-fit: cover;
+    }
+  }
+
+  .a__profile {
+    color: #FF5556;
+    border: solid 1px #FF5556;
+    border-radius: 5px;
+    padding: 5px 20px;
+    height: 30px;
+  }
+}
+
+/* タブ */
+input[type="radio"] {
+  display: none;
+}
+
+.div__tab{
+  padding: 5px 20px;
+  border-bottom: 2px solid #AFAFAF;
+  
+  label{
+    margin: 0 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+#div__recommend{
+  display: none;
+}
+
+#div__mylist {
+  display: none;
+}
+
+#input__recommend:checked~.div__tab #label__recommend {
+  color: #DD0C0F;
+}
+
+#input__mylist:checked~.div__tab #label__mylist {
+  color: #DD0C0F;
+}
+
+#input__recommend:checked~.div__panel #div__recommend{
+  display: block;
+}
+
+#input__mylist:checked~.div__panel #div__mylist {
+  display: block;
+}
+
+/* 商品一覧 */
+.div__item-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding: 0 calc((100% - 300px * 6) / 2);
+
+  .div__item-info {
+    margin: 10px;
+    margin-bottom: 20px;
+    height: 250px;
+    width: 280px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+
+    .div__image {
+      height: 90%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .a__item-name {
+      text-align: center;
+      margin: 5px;
+    }
+  }
+}
+
+@media screen and (max-width : 1768px) {
+  .div__item-list {
+    padding: 0 calc((100% - 300px * 5) / 2);
+  }
+}
+
+@media screen and (max-width : 1518px) {
+  .div__item-list {
+    padding: 0 calc((100% - 300px * 4) / 2);
+  }
+}
+
+@media screen and (max-width : 1268px) {
+  .div__item-list {
+    padding: 0 calc((100% - 300px * 3) / 2);
+  }
+}
+
+@media screen and (max-width : 1018px) {
+  .div__item-list {
+    padding: 0 calc((100% - 300px * 2) / 2);
+  }
+}
+
+@media screen and (max-width : 768px) {
+  .div__item-list {
+    padding: 0 calc((100% - 300px) / 2);
+  }
+}

@@ -21,7 +21,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'address_id',
         'img_url',
     ];
 
@@ -45,8 +44,8 @@ class User extends Authenticatable
     ];
 
     // Addressモデルとの紐づけ
-    public function address(){
-        return $this->belongsTo('App\Models\Address');
+    public function addresses(){
+        return $this->hasMany('App\Models\Address');
     }
 
     // Itemモデルとの紐づけ

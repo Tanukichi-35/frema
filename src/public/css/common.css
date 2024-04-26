@@ -72,34 +72,33 @@ header{
     flex-direction: row;
     justify-self: right;
     margin-right: 15px;
-  }
 
-  .div__link{
-    a{
-      color: #fff;
-      margin-right: 10px;
+    a {
+        color: #fff;
+        margin-right: 10px;
+        justify-self: center;
+      }
+
+    .form__logout {
+      justify-self: center;
+  
+      button {
+        height: 32px;
+        color: #fff;
+        background-color: #000;
+        margin-right: 10px;
+      }
     }
-  }
-
-  .form__logout{
-    justify-self: center;
-
-    button{
+  
+    .a__sell {
+      color: #000;
+      background-color: #fff;
       height: 32px;
-      color: #fff;
-      background-color: #000;
-      margin-right: 10px;
+      line-height: 32px;
+      margin: 15px;
+      padding: 0 15px;
+      border-radius: 2px;
     }
-  }
-
-  .a__sell{
-    color: #000;
-    background-color: #fff;
-    height: 32px;
-    line-height: 32px;
-    margin: 15px;
-    padding: 0 15px;
-    border-radius: 2px;
   }
 }
 
@@ -148,7 +147,7 @@ input,
 textarea,
 select {
   padding-left: 10px;
-  background-color: #FFF;
+  background-color: #fff;
   border: none;
 }
 
