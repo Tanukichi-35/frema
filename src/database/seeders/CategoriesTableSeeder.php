@@ -38,5 +38,10 @@ class CategoriesTableSeeder extends Seeder
             'name' => 'ファッション',
         ];
         DB::table('categories')->insert($param);
+
+        $param = [
+            'name' => 'その他',
+        ];
+        DB::table('categories')->insert($param);
     }
 }

@@ -231,7 +231,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'FileIO' => App\Libs\FileIO::class,
-
+        'Category' => App\Models\Category::class,
+        'Condition' => App\Models\Condition::class,
     ],
 
 ];

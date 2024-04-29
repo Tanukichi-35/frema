@@ -20,22 +20,24 @@ class CommentController extends Controller
     public function create(Request $request){
         if(Auth::user()) {
             $user_id = Auth::user()->id;
-            $store_id = $request->store_id;
-            if(Review::checkReview($user_id, $store_id)){
-            return redirect('/detail/'.$store_id)->with('error','既にレビューを投稿済みです。');
+            $item_id = $request->item_id;
+            if(Comment::checkComment($user_id, $item_id)){
+                return back()->with('error','既にコメントを投稿済みです。');
             }
             else{
-            // 新しくレビューアイテムを作成
-            Review::create([
-                'user_id' => $user_id,
-                'store_id' => $store_id,
-                'rate' => $request->rate,
-                'comment' => $request->comment,
-            ]);
+            // 新しくコメントアイテムを作成
+                Comment::create([
+                    'user_id' => $user_id,
+                    'item_id' => $item_id,
+                    'comment' => $request->comment,
+                ]);
             }
 
             // 画面を更新
-            return redirect('/detail/'.$store_id)->with('message','レビューを投稿いただきありがとうございます。');
+            return back()->with('message','コメントを投稿いただきありがとうございます。');
+        }
+        else{
+            return back()->with('error','コメントを投稿するにはログインしてください。');
         }
     }
 }

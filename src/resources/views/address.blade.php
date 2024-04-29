@@ -6,8 +6,8 @@
 
 @section('content')
 <div class="div__main">
-  <h2 class="h2__title">住所の変更</h2>
-  <form action="/register" method="POST" class="form__register">
+  <h2 class="h2__title">配送先の変更</h2>
+  <form action="/address" method="POST" class="form__register">
     @csrf
     <div class="div__input-form">
       <div class="div__input">
@@ -49,7 +49,7 @@
           @enderror
         </ul>
       </div>
-      <button class="button__submit">更新する</button>
+      <button class="button__submit">変更する</button>
     </div>
   </form>
 </div>

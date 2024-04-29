@@ -47,7 +47,7 @@ class AuthController extends Controller
         ]);
 
         // 住所の更新
-        $user->address->update([
+        $user->addresses[0]->update([
             'postcode' => $request->postcode,
             'address' => $request->address,
             'building' => $request->building

@@ -12,7 +12,7 @@ class Order extends Model
         'item_id',
         'address_id',
         'user_id',
-        'payment_method',
+        'payment',
         'status',
     ];
 
@@ -36,13 +36,13 @@ class Order extends Model
         $this->item_id = $item_id;
         $this->user_id = $user->id;
         $this->address_id = $user->addresses[0]->id;
-        $this->payment_method = 0;
+        $this->payment = 0;
         $this->status = 0;
     }
 
     // 支払い方法を取得
     public function getPayment(){
-        switch ($this->payment_method) {
+        switch ($this->payment) {
             case '0':
                 return 'クレジットカード';
             case '1':

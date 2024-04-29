@@ -9,7 +9,7 @@
 <div class="div__main">
   <h2 class="h2__title">プロフィール設定</h2>
 
-  <form action="/mypage/profile/restore" method="POST" class="form__restore" enctype="multipart/form-data">
+  <form action="/mypage/profile" method="POST" class="form__restore" enctype="multipart/form-data">
     @csrf
     <div class="div__img">
       <img src="{{asset($user->img_url)}}">
@@ -85,5 +85,5 @@
 @endsection
 
 @section('script')
-  <script src="{{ asset('js/profile.js') }}"></script>
+  <script src="{{ asset('js/setImage.js') }}"></script>
 @endsection

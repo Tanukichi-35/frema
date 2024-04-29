@@ -24,4 +24,16 @@ class Category extends Model
             $query->where('name', "like", "%".$keyword."%");
         }
     }
+
+    // 選択されているカテゴリー？
+    public function isSelected($category_ids){
+        dd($category_ids);
+        foreach ($category_ids as $category_id) {
+            if($this->id == $category_id){
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

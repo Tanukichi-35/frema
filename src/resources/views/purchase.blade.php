@@ -18,13 +18,13 @@
     {{-- 支払い方法 --}}
     <div class="div__payment">
       <h3 class="h3__payment">支払い方法</h3>
-      <a href="/purchase/payment/{{$order->item->id}}" class="a__payment">変更する</a>
+      <a href="/payment" class="a__payment">変更する</a>
     </div>
 
     {{-- 配送先 --}}
     <div class="div__delivery">
       <h3 class="h3__delivery">配送先</h3>
-      <a href="/purchase/address/{{$order->item->id}}" class="a__delivery">変更する</a>
+      <a href="/address" class="a__delivery">変更する</a>
     </div>
 
     {{-- まとめ --}}
@@ -36,7 +36,7 @@
         </tr>
         <tr class="tr__payment-price">
           <th>支払い金額</th>
-          <td>¥{{$order->item->price}}</td>
+          <td>{{'¥'.number_format($order->item->price)}}</td>
         </tr>
         <tr class="tr__payment-method">
           <th>支払い方法</th>
@@ -47,7 +47,9 @@
 
     {{-- 購入 --}}
     <div class="div__purchase">
-      <form action="" class="form__purcahse">
+      <form action="/purchase" method="POST" class="form__purcahse">
+      @csrf
+        <input type="string" name="item_id" value="{{$order->item->id}}" hidden>
         <button class="button__purchase">購入する</button>
       </form>
     </div>

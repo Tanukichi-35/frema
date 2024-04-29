@@ -16,7 +16,7 @@
       <div class="div__title">
         <h2 class="h2__item-name">{{$item->name}}</h2>
         <small class="small__brand-name">ブランド名</small>
-        <p class="p__price">¥{{$item->price}}</p>
+        <p class="p__price">{{'¥'.number_format($item->price)}}</p>
       </div>
       <div class="div__function">
         <div class="div__like">
@@ -74,10 +74,10 @@
           @endforeach
         </div>
         <div class="div__submit-comment">
-          <form action="{{'/detail/'.$item->id.'/comment'}}" method="POST" class="form__comment">
+          <form action="/comment" method="POST" class="form__comment">
           @csrf
             <label class="label__comment" for="comment">商品へのコメント</label>
-            <input type="number" name="item_id" value="{{$item->id}}" hidden>
+            <input type="string" name="item_id" value="{{$item->id}}" hidden>
             <textarea name="comment" id="comment" class="textarea__comment" rows="5"></textarea>
             <button class="button__comment-submit">コメントを送信する</button>
           </form>

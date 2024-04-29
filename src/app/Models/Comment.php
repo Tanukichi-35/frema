@@ -26,12 +26,12 @@ class Comment extends Model
     }
 
     // コメントアイテムの取得
-    public static function getComment(int $user_id, int $item_id){
+    public static function getComment(int $user_id, string $item_id){
         return Comment::where("user_id", '=', $user_id)->where("item_id", '=', $item_id)->first();
     }
 
     // コメントテータスの確認
-    public static function checkComment(int $user_id, int $item_id){
+    public static function checkComment(int $user_id, string $item_id){
       if($user_id == 0){
           return session()->has(Store::find($item_id)->name);
       }
@@ -42,6 +42,10 @@ class Comment extends Model
 
     // 自身のコメント？
     public function isOwner(){
+        if(!Auth::check()){
+            return false;
+        }
+
         return $this->user_id == Auth::user()->id;
     }
 }

@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->foreignUuid('item_id')->constrained('items');
             $table->foreignId('address_id')->constrained('addresses');
             $table->foreignId('user_id')->constrained('users');
-            $table->tinyInteger('payment_method');
+            $table->tinyInteger('payment');
             $table->tinyInteger('status');
             $table->timestamps();
             $table->softDeletes();

@@ -36,3 +36,17 @@
 .h3__input{
   border-bottom: solid 1px #C3C3C3;
 }
+
+.select__search-category{
+
+  /* span{
+    display: inline-block;
+    line-height: 30px;
+    margin: 0.3rem 0 -0.3rem 0;
+  } */
+
+  .ms-drop input[type="checkbox"]{
+    height: 0.8rem;
+    margin-left: -1.25rem;
+  }
+}

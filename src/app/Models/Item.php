@@ -17,8 +17,10 @@ class Item extends Model
     public $incrementing = false;
     protected $keyType = 'string';
     protected $fillable = [
+        'id',
         'name',
         'description',
+        'user_id',
         'condition_id',
         'price',
         'img_url',

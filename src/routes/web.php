@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use App\Http\Controllers\LikeController;
 // トップページを表示
 Route::get('/', [
     ItemController::class, 'index'
-]);
+])->name('top');;
 
 // 商品の検索を実行
 Route::get('/search', [
@@ -56,7 +57,7 @@ Route::middleware('auth')->group(function () {
     ])->name('profile');
 
     // プロフィールを更新
-    Route::post('/mypage/profile/restore', [
+    Route::post('/mypage/profile', [
         AuthController::class, 'restore'
     ]);
 
@@ -66,12 +67,12 @@ Route::middleware('auth')->group(function () {
     ])->name('purchase');
 
     // 商品の購入
-    Route::post('/purchase/{item_id}', [
+    Route::post('/purchase', [
         OrderController::class, 'create'
     ]);
 
     // コメントを投稿
-    Route::post('/detail/{item_id}/comment', [
+    Route::post('/comment', [
         CommentController::class, 'create'
     ]);
 
@@ -81,18 +82,28 @@ Route::middleware('auth')->group(function () {
     ])->name('sell');
 
     // 商品の出品登録
-    Route::post('/sell/register', [
+    Route::post('/sell', [
         ItemController::class, 'create'
     ]);
 
     // 住所の変更ページを表示
-    Route::get('/purchase/address/{order_id}', [
+    Route::get('/address', [
         OrderController::class, 'address'
     ])->name('address');
 
-    // // 住所を変更
-    // Route::post('/purchase/address/{order_id}', [
-    //     OrderController::class, 'restoreAddress'
-    // ]);
+    // 住所を変更
+    Route::post('/address', [
+        OrderController::class, 'restoreAddress'
+    ]);
+
+    // 支払い方法の変更ページを表示
+    Route::get('/payment', [
+        OrderController::class, 'payment'
+    ])->name('payment');
+
+    // 支払い方法を変更
+    Route::post('/payment', [
+        OrderController::class, 'restorePayment'
+    ]);
 
 });

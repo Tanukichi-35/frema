@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ItemRequest;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\ItemCategory;
 use App\Models\Like;
 use Auth;
 use FileIO;
+use Str;
 
 class ItemController extends Controller
 {
@@ -66,23 +68,37 @@ class ItemController extends Controller
 
     // 商品の出品登録
     public function create(ItemRequest $request){
+        // dd($request);
+
+        // 画像をアップロード
+        $img_url = null;
+        if(!is_null($request->file('image'))){
+            $img_url = FileIO::uploadImageFile($request->file('image'));
+        }
+
+        // 商品を登録
+        $item = Item::create([
+            'id' => Str::uuid(),
+            'name' => $request->name,
+            'description' => $request->description,
+            'user_id' => Auth::user()->id,
+            'condition_id' => $request->condition_id,
+            'price' => $request->price,
+            'img_url' => $img_url,
+        ]);
+
+        // カテゴリーを登録
+        foreach ($request->category_id as $category_id) {
+            $category = ItemCategory::create([
+                'category_id' => $category_id,
+                'item_id' => $item->id,
+            ]);
+        }
+
+        // 画面を更新
+        $message = '商品を登録しました';
+        return redirect()->route('mypage')->with(compact('message'));
     }
-
-    //     // 商品を登録
-    //     $item = Item::create([
-    //         'name' => $request->name,
-    //         'manager_id' => $request->manager_id,
-    //         'area_id' => $request->area_id,
-    //         'genre_id' => $request->genre_id,
-    //         'description' => $request->description,
-    //         'imageURL' => $imagePath
-    //     ]);
-
-    //     // 画面を更新
-    //     // return redirect()->route('manager.items');
-    //     $message = '新しく商品を登録しました';
-    //     return redirect()->route('manager.items')->with(compact('message'));
-    // }
 
     // // 商品情報の更新ページの表示
     // public function edit($item_id){
