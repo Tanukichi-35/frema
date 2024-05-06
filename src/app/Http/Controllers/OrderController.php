@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AddressRequest;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Address;
 use Auth;
@@ -27,33 +28,29 @@ class OrderController extends Controller
     }
 
     // 購入処理
-    public function create(){
+    public function create($order, $address){
 
         // 登録されていない住所の場合登録する
-        $user = Auth::user();
-        $order = session()->pull('order');
+        $user = User::find($order->user_id);
         $isExist = false;
-        if(session()->exists('address')){
-            $address = session()->pull('address');
-            foreach ($user->addresses as $exist_address) {
-                if($address->postcode == $exist_address->postcode
-                    && $address->address == $exist_address->address
-                    && $address->building == $exist_address->building){
-                    $isExist = true;
-                    $order->address_id = $exist_address->id;
-                    break;
-                }
+        foreach ($user->addresses as $exist_address) {
+            if($address->postcode == $exist_address->postcode
+                && $address->address == $exist_address->address
+                && $address->building == $exist_address->building){
+                $isExist = true;
+                $order->address_id = $exist_address->id;
+                break;
             }
+        }
 
-            if(!$isExist){
-                $address = Address::create([
-                    'user_id' => $address->user_id,
-                    'postcode' => $address->postcode,
-                    'address' => $address->address,
-                    'building' => $address->building,
-                ]);
-                $order->address_id = $address->id;
-            }
+        if(!$isExist){
+            $address = Address::create([
+                'user_id' => $address->user_id,
+                'postcode' => $address->postcode,
+                'address' => $address->address,
+                'building' => $address->building,
+            ]);
+            $order->address_id = $address->id;
         }
 
         // 注文を作成
@@ -65,7 +62,7 @@ class OrderController extends Controller
             'status' => $order->status,
         ]);
 
-        return view('thanks');
+        // return view('thanks');
     }
 
     // 住所変更画面を表示

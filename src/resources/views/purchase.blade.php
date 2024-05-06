@@ -11,7 +11,7 @@
       <img class="img__item-image" src="{{asset($order->item->img_url)}}" alt="画像が登録されていません">
       <div class="div__item-info">
         <h3 class="h3__item-name">{{$order->item->name}}</h3>
-        <p class="p__item-price">¥{{$order->item->price}}</p>
+        <p class="p__item-price">{{'¥'.number_format($order->item->price)}}</p>
       </div>
     </div>
 
@@ -47,12 +47,7 @@
 
     {{-- 購入 --}}
     <div class="div__purchase">
-      <form action="/purchase" method="POST" class="form__purcahse">
-      @csrf
-        <input type="string" name="item_id" value="{{$order->item->id}}" hidden>
-        <button class="button__purchase">購入する</button>
-      </form>
+      <a href="/checkout" class="a__purchase"  target="_blank">購入する</a>
     </div>
-
   </div>
 @endsection

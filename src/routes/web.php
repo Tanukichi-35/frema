@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,11 @@ Route::post('/likeOn', [
 // お気に入り削除
 Route::post('/likeOff', [
     LikeController::class, 'destroy'
+]);
+
+// webhookによるセッション完了通知
+Route::post('/webhooks',[
+    StripeController::class, 'webhook'
 ]);
 
 // 会員認証
@@ -106,4 +112,23 @@ Route::middleware('auth')->group(function () {
         OrderController::class, 'restorePayment'
     ]);
 
+    // 決済
+    Route::post('/charge',[
+        StripeController::class, 'charge'
+    ])->name('stripe.charge');
+
+    // 決済ページを表示
+    Route::get('/checkout',[
+        StripeController::class, 'checkout'
+    ])->name('stripe.checkout');
+
+    // 決済成功ページを表示
+    Route::get('/checkout/success',[
+        StripeController::class, 'success'
+    ])->name('stripe.success');
+
+    // 決済キャンセルページを表示
+    Route::get('/checkout/cancel',[
+        StripeController::class, 'cancel'
+    ])->name('stripe.cancel');
 });

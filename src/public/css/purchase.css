@@ -98,7 +98,20 @@
   grid-column: 3 / 4;
   margin-right: 5%;
 
-  .button__purchase {
+  /* .button__purchase {
+    width: 100%;
+    height: 40px;
+    padding: 5px 0;
+    font-size: 1.1rem;
+    border-radius: 3px;
+    margin: 5px 0;
+  } */
+
+  .a__purchase {
+    background-color: #FF5556;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
     width: 100%;
     height: 40px;
     padding: 5px 0;
@@ -106,4 +119,36 @@
     border-radius: 3px;
     margin: 5px 0;
   }
+
+  /* .stripe-button-el {
+    background-image: none;
+    background-color: #FF5556;
+    color: #fff;
+    width: 100%;
+    height: 40px;
+    padding: 5px 0;
+    font-size: 1.1rem;
+    border-radius: 3px;
+    margin: 5px 0;
+  }
+
+  .stripe-button-el:not(:disabled):active{
+    background-image: none;
+    background-color: #FF5556;
+  }
+
+  .stripe-button-el span{
+    background-image: none;
+    background-color: #FF5556;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #fff;
+  }
+
+  .stripe-button-el span:not(:disabled):active {
+    background-image: none;
+    background-color: #FF5556;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  } */
 }
