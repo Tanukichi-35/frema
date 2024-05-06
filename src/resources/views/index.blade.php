@@ -20,8 +20,16 @@
       <div class="div__item-list">
         @foreach ($items as $item)
         <div class="div__item-info">
-          <div class="div__image" style="background-image: url({{asset($item->img_url)}});"></div>
-          <a href="/detail/{{$item->id}}" class="a__item-name">{{$item->name}}</a>
+          <a class="a__item" href="/detail/{{$item->id}}">
+            <div class="div__image" style="background-image: url({{asset($item->img_url)}});">
+              @if ($item->isSold())
+                  <div class="div__gray">
+                    <p class="p__sold">売り切れ</p>
+                  </div>
+              @endif
+            </div>
+            <p href="/detail/{{$item->id}}" class="p__item-name">{{$item->name}}</p>
+          </a>
         </div>
         @endforeach
       </div>
@@ -32,8 +40,16 @@
       <div class="div__item-list">
         @foreach ($favoriteItems as $item)
         <div class="div__item-info">
-          <div class="div__image" style="background-image: url({{asset($item->img_url)}});"></div>
-          <a href="/detail/{{$item->id}}" class="a__item-name">{{$item->name}}</a>
+          <a class="a__item" href="/detail/{{$item->id}}">
+            <div class="div__image" style="background-image: url({{asset($item->img_url)}});">
+              @if ($item->isSold())
+                  <div class="div__gray">
+                    <p class="p__sold">売り切れ</p>
+                  </div>
+              @endif
+            </div>
+            <p href="/detail/{{$item->id}}" class="p__item-name">{{$item->name}}</p>
+          </a>
         </div>
         @endforeach
       </div>

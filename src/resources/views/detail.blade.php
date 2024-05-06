@@ -8,7 +8,10 @@
   <div class="div__main">
     {{-- 商品画像 --}}
     <div class="div__left-contents">
-      <img class="img__item-image" src="{{asset($item->img_url)}}" alt="画像が登録されていません">
+      <div class="div__item-image">
+        <button class="button__back" onclick="goBackPage()">&lt; 戻る</button>
+        <img class="img__item-image" src="{{asset($item->img_url)}}" alt="画像が登録されていません">
+      </div>
     </div>
 
     {{-- 商品説明 --}}
@@ -39,7 +42,11 @@
       </div>
       {{-- 購入フォーム --}}
       <div class="div__purchase-form">
+        @if ($item->isSold())
+        <div class="div__purchase-dummy">購入する</div>
+        @else
         <a href="/purchase/{{$item->id}}" class="a__purchase">購入する</a>
+        @endif
         <div class="div__item-description">
           <h3 class="h3__description-title">商品説明</h3>
           <p class="p__description">{{$item->description}}</p>

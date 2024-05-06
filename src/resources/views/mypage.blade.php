@@ -29,8 +29,10 @@
       <div class="div__item-list">
         @foreach ($exhibitedItems as $item)
         <div class="div__item-info">
+          <a class="a__item" href="/detail/{{$item->id}}">
           <div class="div__image" style="background-image: url({{asset($item->img_url)}});"></div>
-          <a href="/detail/{{$item->id}}" class="a__item-name">{{$item->name}}</a>
+          <p class="p__item-name">{{$item->name}}</p>
+          </a>
         </div>
         @endforeach
       </div>
@@ -40,8 +42,10 @@
       <div class="div__item-list">
         @foreach ($purchasedItems as $item)
         <div class="div__item-info">
+          <a class="a__item" href="/detail/{{$item->id}}">
           <div class="div__image" style="background-image: url({{asset($item->img_url)}});"></div>
-          <a href="/detail/{{$item->id}}" class="a__item-name">{{$item->name}}</a>
+          <p class="p__item-name">{{$item->name}}</p>
+          </a>
         </div>
         @endforeach
       </div>

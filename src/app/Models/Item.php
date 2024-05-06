@@ -99,4 +99,9 @@ class Item extends Model
     public function getCommentNumber(){
         return Comment::where('item_id', '=', $this->id)->count();
     }
+
+    // 売り切れ？
+    public function isSold(){
+        return Order::where('item_id', '=', $this->id)->exists();
+    }
 }

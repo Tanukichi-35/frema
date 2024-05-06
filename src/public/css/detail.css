@@ -7,9 +7,16 @@
 /* 商品画像 */
 .div__left-contents{
   display: flex;
-  justify-content: center;
-  align-items:flex-start;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items:center;
   margin-top: 16px;
+
+  .div__item-image{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+  }
 
   .img__item-image{
     max-width: 300px;
@@ -50,7 +57,19 @@
       width: 90%;
       max-width: 500px;
 
-      .a__purchase {
+    .div__purchase-dummy {
+      display: inline-block;
+      background-color: #C8C8C8;
+      color: #fff;
+      width: 100%;
+      padding: 5px 0;
+      border-radius: 3px;
+      margin: 10px 0;
+      text-align: center;
+      cursor: not-allowed;
+    }
+
+    .a__purchase {
       display: inline-block;
       background-color: #FF5556;
       color: #fff;
