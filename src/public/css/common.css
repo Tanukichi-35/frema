@@ -158,3 +158,15 @@ button {
   border: none;
   cursor: pointer;
 }
+
+.button__back {
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  color: #000;
+  background-color: #fff;
+  border-radius: 5px;
+  /* border: solid 1px #000; */
+  text-decoration: none;
+  margin-bottom: 10px;
+}
