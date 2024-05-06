@@ -26,6 +26,7 @@
         <input class="input__search" type="text" name="keyword" id="" placeholder="なにをお探しですか？" @if (isset( $request )) value="{{$request['keyword']}}"@endif>
       </form>
       <div class="div__menu">
+        <a href="/" class="a__toppage">トップページ</a>
         @if (Auth::check()){
           <a href="/mypage" class="a__mypage">マイページ</a>
           <form class="form__logout" action="/logout" method="POST">
