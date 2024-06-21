@@ -155,6 +155,14 @@ input[type="radio"] {
 }
 
 @media screen and (max-width : 768px) {
+  .div__main-top{
+    flex-direction: column;
+
+    .a__profile{
+      margin-top: 20px;
+    }
+  }
+
   .div__item-list {
     padding: 0 calc((100% - 300px) / 2);
   }

@@ -154,3 +154,10 @@
     }
   }
 }
+
+@media screen and (max-width : 768px) {
+  .div__main{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+}
