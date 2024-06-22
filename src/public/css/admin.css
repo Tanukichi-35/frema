@@ -1,0 +1,40 @@
+header{
+  .div__header{
+    height: 62px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .a__logo{
+    width: fit-content;
+  }
+  .form__search{
+    display: none;
+  }
+  .a__toppage, .a__mypage, .a__login, .a__register, .a__sell{
+    display: none;
+  }
+}
+
+@media screen and (max-width : 768px) {
+  header{
+    .div__header {
+      height: 124px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 62px 62px;
+
+      .img__logo
+      {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+  
+      .div__menu{
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        justify-self: right;
+        margin: 0;
+      }
+    }
+  }
+}

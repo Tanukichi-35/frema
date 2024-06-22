@@ -1,0 +1,30 @@
+.table__list {
+  .tr__contents{
+    .div__button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+
+      .a__comment{
+        background-color: #26c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .button__delete{
+        background-color: #FF5556;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}

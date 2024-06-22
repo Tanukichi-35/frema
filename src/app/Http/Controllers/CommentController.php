@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Comment;
 use App\Models\Item;
 use Auth;
@@ -39,5 +40,25 @@ class CommentController extends Controller
         else{
             return back()->with('error','コメントを投稿するにはログインしてください。');
         }
+    }
+
+    // コメント一覧を表示
+    public function index(int $user_id){
+        $user = User::find($user_id);
+        $comments = Comment::where('user_id', '=', $user_id)->paginate(10);
+
+        return view('admin.comments', compact('user', 'comments'));
+    }
+
+    // コメントの削除
+    public function destroy(int $comment_id)
+    {
+        $comment = Comment::find($comment_id);
+        $user_id = $comment->user_id;
+        $comment->delete();
+
+        // 画面を更新
+        $error = 'コメントを削除しました';
+        return redirect()->route('admin.comments',['user_id' => $user_id])->with(compact('error'));
     }
 }

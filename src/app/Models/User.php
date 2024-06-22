@@ -64,7 +64,7 @@ class User extends Authenticatable
     }
 
     // Commentモデルとの紐づけ
-    public function comment(){
+    public function comments(){
         return $this->hasMany('App\Models\Comment');
     }
 

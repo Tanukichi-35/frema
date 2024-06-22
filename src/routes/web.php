@@ -8,6 +8,8 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\StripeController;
 
+include __DIR__ . '/admin.php';
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

@@ -18,7 +18,7 @@
 <body>
   <header>
     <div class="div__header">
-      <a href="/">
+      <a class="a__logo" href="/">
         <img class="img__logo" src="{{asset("img/logo.svg")}}" alt="">
       </a>
       <form class="form__search" action="/search" method="GET" @disabled(true)>
@@ -27,17 +27,15 @@
       </form>
       <div class="div__menu">
         <a href="/" class="a__toppage">トップページ</a>
-        @if (Auth::check()){
+        @if (Auth::check())
           <a href="/mypage" class="a__mypage">マイページ</a>
           <form class="form__logout" action="/logout" method="POST">
             @csrf
             <button>ログアウト</button>
           </form>
-        }
-        @else{
+        @else
           <a href="/login" class="a__login">ログイン</a>
           <a href="/register" class="a__register">会員登録</a>
-        }
         @endif
         <a href="/sell" class="a__sell">出品</a>
       </div>
