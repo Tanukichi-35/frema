@@ -5,13 +5,7 @@ header{
     grid-template-columns: 1fr;
   }
 
-  .a__logo{
-    width: fit-content;
-  }
-  .form__search{
-    display: none;
-  }
-  .a__toppage, .a__mypage, .a__login, .a__register, .a__sell{
+  .form__search, .a__toppage, .a__sell{
     display: none;
   }
 }

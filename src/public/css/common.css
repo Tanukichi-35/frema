@@ -52,6 +52,7 @@ header{
   .img__logo{
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    width: fit-content;
     margin: 15px;
   }
 
@@ -83,6 +84,7 @@ header{
     margin-right: 15px;
 
     a {
+        line-height: 64px;
         color: #fff;
         margin-right: 10px;
         justify-self: center;

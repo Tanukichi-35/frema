@@ -27,7 +27,13 @@
       </form>
       <div class="div__menu">
         <a href="/" class="a__toppage">トップページ</a>
-        @if (Auth::check())
+        @if (Auth::guard('admins')->check())
+          <a href="/admin/mail" class="a__mail">メール送信</a>
+          <form class="form__logout" action="/logout" method="POST">
+            @csrf
+            <button>ログアウト</button>
+          </form>
+        @elseif (Auth::check())
           <a href="/mypage" class="a__mypage">マイページ</a>
           <form class="form__logout" action="/logout" method="POST">
             @csrf

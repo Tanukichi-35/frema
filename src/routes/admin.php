@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,13 +51,13 @@ Route::prefix('admin')->middleware('auth.admins:admins')->group(function () {
         CommentController::class, 'destroy'
     ]);
 
-    // // お知らせメール送信フォームの表示
-    // Route::get('mail', [
-    //     MailController::class, 'mail'
-    // ])->name('admin.mail');
+    // お知らせメール送信フォームの表示
+    Route::get('mail', [
+        MailController::class, 'mail'
+    ])->name('admin.mail');
 
-    // // お知らせメールを送信
-    // Route::post('mail', [
-    //     MailController::class, 'send'
-    // ]);
+    // お知らせメールを送信
+    Route::post('mail', [
+        MailController::class, 'send'
+    ]);
 });
