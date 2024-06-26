@@ -28,7 +28,7 @@
     <div class="div__input-form">
       <div class="div__input">
         <label for="name">ユーザー名</label>
-        <input type="text" name="name" class="input__name" id="name" value="{{$user->name}}" >
+        <input type="text" name="name" class="input__name" id="name" value="{{old('name') ?: $user->name ?? ''}}" >
       </div>
       <div class="div__error">
         <ul>
@@ -41,7 +41,7 @@
       </div>
       <div class="div__input">
         <label for="postcode">郵便番号</label>
-        <input type="text" name="postcode" class="input__postcode" id="postcode" value="{{$user->addresses[0]->postcode}}" >
+        <input type="text" name="postcode" class="input__postcode" id="postcode" value = {{old('postcode') ?: $user->addresses[0]->postcode ?? ''}}>
       </div>
       <div class="div__error">
         <ul>
@@ -54,7 +54,7 @@
       </div>
       <div class="div__input">
         <label for="address">住所</label>
-        <input type="address" name="address" class="input__address" id="address" value="{{$user->addresses[0]->address}}">
+        <input type="address" name="address" class="input__address" id="address" value = {{old('address') ?: $user->addresses[0]->address ?? ''}}>
       </div>
       <div class="div__error">
         <ul>
@@ -67,7 +67,7 @@
       </div>
       <div class="div__input">
         <label for="building">建物名</label>
-        <input type="building" name="building" class="input__building" id="building" value="{{$user->addresses[0]->building}}">
+        <input type="building" name="building" class="input__building" id="building" value = {{old('building') ?: $user->addresses[0]->building ?? ''}}>
       </div>
       <div class="div__error">
         <ul>
