@@ -46,7 +46,7 @@ class UsersTest extends TestCase
         // ユーザー数を取得
         $userCount = User::all()->count();
 
-        // ユーザーを登録、同時にログイン？
+        // ユーザーを登録、同時にログイン
         $response = $this->post('/register',[
             'email' => $this->user['email'],
             'password' => $this->user['password'],
@@ -112,7 +112,7 @@ class UsersTest extends TestCase
         $this->assertDatabaseCount('users', $userCount);
         $this->assertDatabaseCount('addresses', $addressCount);
 
-        // データが駆除されていることを確認
+        // データが削除されていることを確認
         $this->assertDatabaseMissing('users',[
             'name' => $this->user['name'],
             'email' => $this->user['email'],
