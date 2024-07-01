@@ -10,7 +10,7 @@ jobs:
       - image: cimg/php:7.3-node
     steps:
       - checkout:
-          path: ~/project
+          path: ~/src
       - php/install-packages
       - run:
           name: run tests
