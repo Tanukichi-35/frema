@@ -5,7 +5,6 @@ jobs:
   build:
     machine:
       image: ubuntu-2004:current
-    working_directory: ~/frema
     steps:
       - checkout
       - run:
