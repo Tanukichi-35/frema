@@ -11,14 +11,17 @@ jobs:
           name: docker-compose up
           command: docker-compose up --build -d
       - run:
-          name: Install php libraries
+          name: install php libraries
           command: |
             docker-compose exec php composer install
-            cp src/.env.example src/.env
-            docker-compose exec php php artisan key:generate
-            sudo chmod 777 -R src
-            docker-compose exec php php artisan migrate
-            docker-compose exec php php artisan db:seed
+      - run:
+          name: generate application key
+          command: |
+            docker-compose exec php php artisan key:generate --env=testing
+      - run:
+          name: create test-db
+          command: |
+            docker-compose exec php php artisan key:generate --env=testing
       - run:
           name: test
           command: |
