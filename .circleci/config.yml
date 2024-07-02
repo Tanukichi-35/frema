@@ -7,15 +7,15 @@ jobs:
       image: ubuntu-2004:current
     steps:
       - checkout
-      - run:
-          name: delete mysql data
-          command: sudo rm -r -f docker/mysql/data
-      - run:
-          name: docker-compose up
-          command: docker-compose up --build -d
-      - run:
-          name: docker-compose up
-          command: docker-compose stop
+      # - run:
+      #     name: delete mysql data
+      #     command: sudo rm -r -f docker/mysql/data
+      # - run:
+      #     name: docker-compose up
+      #     command: docker-compose up --build -d
+      # - run:
+      #     name: docker-compose stop
+      #     command: docker-compose stop
       - run:
           name: docker-compose up
           command: docker-compose up --build -d
