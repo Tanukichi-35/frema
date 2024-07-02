@@ -25,10 +25,10 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required| string | max:255',
+            'name' => 'required | string | max:255',
             'postcode' => ['required', new PostcodeRule()],
-            'address' => 'required| string | max:255',
-            'building' => 'string | max:255',
+            'address' => 'required | string | max:255',
+            'building' => 'nullable | string | max:255',
         ];
     }
 

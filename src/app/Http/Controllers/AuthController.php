@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
+use App\Models\Address;
 use App\Models\User;
 use Auth;
 use FileIO;
+
+use function PHPUnit\Framework\isEmpty;
 
 class AuthController extends Controller
 {
@@ -46,12 +49,23 @@ class AuthController extends Controller
             'img_url' => $imgPath
         ]);
 
-        // 住所の更新
-        $user->addresses[0]->update([
-            'postcode' => $request->postcode,
-            'address' => $request->address,
-            'building' => $request->building
-        ]);
+        if(isEmpty($user->addresses)){
+            // 住所の作成
+            Address::create([
+                'user_id' => $user->id,
+                'postcode' => $request->postcode,
+                'address' => $request->address,
+                'building' => $request->building
+            ]);
+        }
+        else{
+            // 住所の更新
+            $user->addresses[0]->update([
+                'postcode' => $request->postcode,
+                'address' => $request->address,
+                'building' => $request->building
+            ]);
+        }
 
         // 画面を更新
         $message = '登録情報を更新しました';
