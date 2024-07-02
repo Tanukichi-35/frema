@@ -11,6 +11,10 @@ jobs:
           name: docker-compose up
           command: docker-compose up --build -d
       - run:
-          name: composer-install
+          name: Install php libraries
           command: |
             docker-compose exec php composer install
+      - run:
+          name: test
+          command: |
+            docker-compose exec php php artisan test
