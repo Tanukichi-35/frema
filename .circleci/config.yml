@@ -17,6 +17,8 @@ jobs:
             cp src/.env.example src/.env
             docker-compose exec php php artisan key:generate
             sudo chmod 777 -R src
+            docker-compose exec php php artisan migrate
+            docker-compose exec php php artisan db:seed
       - run:
           name: test
           command: |
