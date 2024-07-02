@@ -16,6 +16,7 @@ jobs:
             docker-compose exec php composer install
             cp src/.env.example src/.env
             docker-compose exec php php artisan key:generate
+            sudo chmod 777 -R src
       - run:
           name: test
           command: |
