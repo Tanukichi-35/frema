@@ -8,6 +8,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: delete mysql data
+          command: sudo rm -r -f docker/mysql/data
+      - run:
           name: docker-compose up
           command: docker-compose up --build -d
       - run:
