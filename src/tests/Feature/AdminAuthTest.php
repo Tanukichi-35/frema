@@ -15,6 +15,7 @@ class AdminAuthTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+        $this->artisan('migrate:fresh');
         $this->admin = Admin::factory()->create();
         // $this->admin = $this->seed('AdminsTableSeeder');
     }

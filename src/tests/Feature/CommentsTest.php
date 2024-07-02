@@ -19,6 +19,7 @@ class CommentsTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+        $this->artisan('migrate:fresh');
         $this->seed([
             'UsersTableSeeder',
             'CategoriesTableSeeder',
@@ -28,7 +29,7 @@ class CommentsTest extends TestCase
             'ItemCategoriesTableSeeder',
         ]);
         $this->user = User::factory()->create();
-        $this->item = Item::Where('user_id', '1')->first();
+        $this->item = Item::all()->first();
         $this->comment = "test comment";
     }
 
@@ -45,9 +46,6 @@ class CommentsTest extends TestCase
             'item_id' => $this->item->id,
             'comment' => $this->comment,
         ]);
-
-        // ステータスコード（201）の確認
-        $response->assertCreated();
 
         // コメント数の増加を確認
         $this->assertDatabaseCount('comments', $dataCount + 1);

@@ -20,6 +20,7 @@ class UsersTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+        $this->artisan('migrate:fresh');
         $this->seed([
             'UsersTableSeeder',
             'AddressesTableSeeder',

@@ -15,6 +15,7 @@ class AuthTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+        $this->artisan('migrate:fresh');
         $this->user = User::factory()->create();
         // $this->seed('UsersTableSeeder');
     }
