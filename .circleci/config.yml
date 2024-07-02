@@ -19,10 +19,6 @@ jobs:
           command: |
             docker-compose exec php php artisan key:generate --env=testing
       - run:
-          name: create test-db
-          command: |
-            docker-compose exec php php artisan key:generate --env=testing
-      - run:
           name: test
           command: |
             docker-compose exec php php artisan test
