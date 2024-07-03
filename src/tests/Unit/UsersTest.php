@@ -39,7 +39,7 @@ class UsersTest extends TestCase
     }
 
     // ユーザーの登録・編集・削除の確認
-    public function test_comments(){
+    public function test_users(){
         /////////////////////
         // ユーザー登録
         /////////////////////

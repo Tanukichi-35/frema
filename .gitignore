@@ -2,3 +2,4 @@ docker/mysql/data/
 design/
 AWS/
 src/.env.testing
+frema.pem
