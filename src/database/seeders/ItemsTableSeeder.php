@@ -22,7 +22,7 @@ class ItemsTableSeeder extends Seeder
             'user_id' => '1',
             'condition_id' => '1',
             'price' => 300,
-            'img_url' => asset('img/camera.jpg'),
+            'img_url' => 'img/camera.jpg',
         ];
         DB::table('items')->insert($param);
 
@@ -33,7 +33,7 @@ class ItemsTableSeeder extends Seeder
             'user_id' => '1',
             'condition_id' => '3',
             'price' => 600,
-            'img_url' => asset('img/case.jpg'),
+            'img_url' => 'img/case.jpg',
         ];
         DB::table('items')->insert($param);
 
@@ -44,7 +44,7 @@ class ItemsTableSeeder extends Seeder
             'user_id' => '2',
             'condition_id' => '1',
             'price' => 1200,
-            'img_url' => asset('img/cup.jpg'),
+            'img_url' => 'img/cup.jpg',
         ];
         DB::table('items')->insert($param);
 
@@ -55,7 +55,7 @@ class ItemsTableSeeder extends Seeder
             'user_id' => '1',
             'condition_id' => '2',
             'price' => 2000,
-            'img_url' => asset('img/glass.jpg'),
+            'img_url' => 'img/glass.jpg',
         ];
         DB::table('items')->insert($param);
 
@@ -66,7 +66,7 @@ class ItemsTableSeeder extends Seeder
             'user_id' => '1',
             'condition_id' => '3',
             'price' => 9800,
-            'img_url' => asset('img/hdd.jpg'),
+            'img_url' => 'img/hdd.jpg',
         ];
         DB::table('items')->insert($param);
 
@@ -77,7 +77,7 @@ class ItemsTableSeeder extends Seeder
             'user_id' => '2',
             'condition_id' => '1',
             'price' => 3000,
-            'img_url' => asset('img/helmet.jpg'),
+            'img_url' => 'img/helmet.jpg',
         ];
         DB::table('items')->insert($param);
 
@@ -88,7 +88,7 @@ class ItemsTableSeeder extends Seeder
             'user_id' => '1',
             'condition_id' => '2',
             'price' => 4900,
-            'img_url' => asset('img/keyboard.jpg'),
+            'img_url' => 'img/keyboard.jpg',
         ];
         DB::table('items')->insert($param);
 
@@ -99,7 +99,7 @@ class ItemsTableSeeder extends Seeder
             'user_id' => '1',
             'condition_id' => '3',
             'price' => 12000,
-            'img_url' => asset('img/lens.jpg'),
+            'img_url' => 'img/lens.jpg',
         ];
         DB::table('items')->insert($param);
 
@@ -110,7 +110,7 @@ class ItemsTableSeeder extends Seeder
             'user_id' => '1',
             'condition_id' => '1',
             'price' => 2500,
-            'img_url' => asset('img/mouse.jpg'),
+            'img_url' => 'img/mouse.jpg',
         ];
         DB::table('items')->insert($param);
 
@@ -121,7 +121,7 @@ class ItemsTableSeeder extends Seeder
             'user_id' => '1',
             'condition_id' => '2',
             'price' => 1200,
-            'img_url' => asset('img/filter.jpg'),
+            'img_url' => 'img/filter.jpg',
         ];
         DB::table('items')->insert($param);
     }
